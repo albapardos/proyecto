@@ -1,66 +1,62 @@
-<?php
-/* Descomentaríamos la siguiente línea para mostrar errores de php en el fichero: */
-// ini_set('display_errors', '1');
-/* Definimos los parámetros de conexión con la bbdd: */
-header('Access-Control-Allow-Origin: *');
-$dbinfo =  "mysql:dbname=albapardos_formulario;host=localhost";
-$user = "albapardos_root";
-$pass = "rooter";
-//Nos intentamos conectar:
-try {
-    /* conectamos con bbdd e inicializamos conexión como UTF8 */
-    $db = new PDO($dbinfo, $user, $pass);
-    $db->exec('SET CHARACTER SET utf8');
-} catch (Exception $e) {
-    echo "La conexi&oacute;n ha fallado: " . $e->getMessage();
-}
-/* Para hacer debug cargaríamos a mano el parámetro, descomentaríamos la siguiente línea: */
-//$_REQUEST['zip'] = "12";
-$prueba=$_POST['zip'];
-echo"$prueba";
-if (isset($_POST['zip'])) {
-    /* La línea siguiente la podemos descomentar para ver desde firebug-xhr si se pasa bien el parámetro desde el formulario */
-    //echo $_REQUEST['email'];
+ <?php 
+        include_once"mysql.php";
+                //Tengo que mirar la base de datos
+        $conexion=  conectar();
+                //Miramos a ver si no existe
+        $nombre=$_POST['user'];
+        $pass=$_POST['pass'];
+        //Iniciamos la consulta preparada
+        $consulta = $conexion->stmt_init();
+        
+        $sentencia= "select * from usuario where nick = ? and password = ? ";
+        
+        //Preparamos la sentencia
+        $consulta->prepare($sentencia);
+        
+        //Pasamos los parámetros con param
+        $consulta->bind_param("ss",$nombre,$pass);
+        
+        //Ejecutamos la sentencia
+        $consulta->execute();
+            //Extraemos los valores
+        $consulta->bind_result($id,$n,$p,$acceso);
+        echo "Mi \"$id\"  \"$n\" \"$p\" \"$acceso\"<br/>";
+        
+           if($consulta->fetch()){
+                echo("hooooola");
+                //Si es la primera vez que accedo
+                if ($acceso==false){
+                     //cerramos la consulta anterior
+                    $consulta->close();
+                    //actualizamos la columna acceso (lo podremos a 1 para saber que no es la primera vez que se ha metido el usuario)
+                    $consulta_update = $conexion->stmt_init();
+                    $update= "UPDATE usuario SET acceso=?";
+                    $consulta_update->prepare($update);
+                    $consulta_update -> bind_param("i",1);
+                    $consulta_update->execute();
+                    echo "update realizado";
+                    //cerramos la consulta
+                    $consulta_update->close();
+                    //cerramos la conexión con la base de datos
+                    $conexion->close();
+                    header("Content-type=text/html;  charset=utf-8");
+                    header("Location:http://localhost/prueba_proyecto/creaPersonaje.html?usuario=$nombre");
+                }else{
+                    //Si no es la primera vez accedo al porta
+                    $consulta->close();
+                    $conexion->close();
+                    //header("Content-type: text/html; charset=utf-8") ;
+//                    header("Location:http://localhost/prueba_proyecto/personaje.html?usuario=$nombre");
+                    header("Location:http://www.albapardos.infenlaces.com/proyecto/personaje.html?usuario=$nombre");
+                }
+           
+        }//End executa consulta fetch
+        else {//Caso de que este usuario o pass son incorrectos
+             $conexion->close();
+             $consulta->close();
+             echo "<h2>No existe el usuario $nombre en la base de datos o password incorrecta";    
+             header ("Content-type: text/html; charset=utf-8");
+             header ("refresh:5; Location:http://www.albapardos.infenlaces.com/proyecto/index.html?usuario=$nombre");
+             exit();
+        }
     ?>
-alert("hola");
-    <?php
-   
-    $sql = $db->prepare("SELECT Municipio, CodPostal FROM t_municipios WHERE CodPostal=?");
-    $sql->bindParam(1,$prueba);
-    $sql->execute();
-    /* Ojo... PDOStatement::rowCount() devuelve el número de filas afectadas por la última sentencia DELETE, INSERT, o UPDATE 
-     * ejecutada por el correspondiente objeto PDOStatement.Si la última sentencia SQL ejecutada por el objeto PDOStatement 
-     * asociado fue una sentencia SELECT, algunas bases de datos podrían devolver el número de filas devuelto por dicha sentencia. 
-     * Sin embargo, este comportamiento no está garantizado para todas las bases de datos y no debería confiarse en él para 
-     * aplicaciones portables.
-     */
-    /*
-    $valid = 'true'; 
-    if ($sql->rowCount() > 0) {
-        $valid= 'false';
-    } else {
-       $valid='true';
-    }
-    
-    */
-   // $okey = $sql->fetch(); 
-       ?>
-alert("llega"); 
-    <?php  
-    while ($row=$sql->fetch()) {   
-           ?>
-alert("entra");
-    <?php
-     $opciones.= "<option ='{$row['CodPostal']}'>{$row['Municipio']}</option>";
-  
-    
-      }
-     
-    echo $opciones;
-   
-    
-}
-$sql=null;
-$db = null;
-echo $okey[0];
-?>
