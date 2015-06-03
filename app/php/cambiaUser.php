@@ -1,11 +1,12 @@
- <?php 
+  <?php 
         include_once"mysql.php";
                 //Tengo que mirar la base de datos
         $conexion=  conectar();
                 //Miramos a ver si no existe
-        $nombre=$_POST['user'];
+        $nombre=$_POST['usuario'];
         $pass=$_POST['pass'];
-        //Iniciamos la consulta preparada
+        $nombre1=$_POST['nuevoNombre'];
+              //Iniciamos la consulta preparada
         $consulta = $conexion->stmt_init();
         
         $sentencia= "select * from usuario where nick = ? and password = ? ";
@@ -24,9 +25,7 @@
         
            if($consulta->fetch()){
                 echo("hooooola");
-                //Si es la primera vez que accedo
-                if ($acceso==false){
-                    echo '<br/>primera vez';
+                
                     //cerramos la consulta anterior
                     $consulta->close();
                     $conexion->close();
@@ -35,10 +34,10 @@
 //actualizamos la columna acceso (lo podremos a 1 para saber que no es la primera vez que se ha metido el usuario)
                     $conexion2=  conectar();
                     $consulta_update = $conexion2->stmt_init();
-                    $update= "UPDATE usuario SET acceso=? WHERE nick= ?";
+                    $update= "UPDATE usuario SET nick=? WHERE nick= ?";
                     $consulta_update->prepare($update);                  
                     $acceso=true;
-                    $consulta_update-> bind_param("is",$acceso,$nombre);
+                    $consulta_update-> bind_param("ss",$nombre1,$nombre);
                     $consulta_update->execute();
                     echo "update realizado";
                     //cerramos la consulta
@@ -47,15 +46,8 @@
                     $conexion2->close();
                  
                     header("Content-type=text/html;  charset=utf-8");
-                    header("Location:http://www.albapardos.infenlaces.com/proyecto/creaPersonaje.html");
-                }else{
-                    //Si no es la primera vez accedo al porta
-                   // echo 'no es la primera vez';
-                    $consulta->close();
-                    $conexion->close();
-                    header("Content-type: text/html; charset=utf-8") ;
-                    header("http://www.albapardos.infenlaces.com/proyecto/personaje.html");
-                }
+                    header("Location:http://www.albapardos.infenlaces.com/proyecto/personaje.html");
+               
            
         }//End executa consulta fetch
         else {//Caso de que este usuario o pass son incorrectos
@@ -63,7 +55,7 @@
              $consulta->close();
              echo "<h2>No existe el usuario $nombre en la base de datos o password incorrecta";    
              header ("Content-type: text/html; charset=utf-8");
-             header ("refresh:5;http://www.albapardos.infenlaces.com/proyecto/index.html");
+             header ("refresh:5; Location:http://www.albapardos.infenlaces.com/proyecto/cambiaUser.html");
              exit();
         }
     ?>

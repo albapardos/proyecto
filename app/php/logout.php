@@ -6,6 +6,6 @@
 
  
 
-    header('location: index.php');
+    header("Location:http://www.albapardos.infenlaces.com/proyecto/index.html");
 
 ?>

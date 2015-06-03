@@ -78,8 +78,35 @@
     </ul>
  </div>
  <!-- FIN AVISOS NOVEDADES -->
-  
-  <!-- INICIO IMAGEN PERSONAJE -->
+  <div class="well">
+<form class="form-horizontal" action="php/cambiaPass.php" method="post">
+  <fieldset>
+    <legend>Cambia tu nombre de Usuario</legend>
+    <div class="form-group">
+      <label for="usuario" class="col-lg-2 control-label">Usuario</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="usuario" placeholder="Escribe tu nombre de usuario">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="pass" class="col-lg-2 control-label">Password</label>
+      <div class="col-lg-10">
+        <input type="password" class="form-control" id="passNueva" placeholder="Nueva Password">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="nuevoNombre" class="col-lg-2 control-label">Usuario*</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="nuevoNombre" placeholder="Escribe tu nuevo nombre de Usuario">
+      </div>
+    </div>
+    <div align="center">
+      <button type="submit" class="btn btn-primary">Cambiar nombre de Usuario</button> 
+    </div>
+  </fieldset>
+</form>
+</div>
+
     
   <!-- FIN IMAGEN PERSONAJE -->
     <!-- build:js(.) scripts/vendor.js -->

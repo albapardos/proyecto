@@ -5709,6 +5709,8 @@ a.list-group-item-danger.active:focus {
   padding-bottom: 75%;
 }
 .well {
+  margin: auto;
+  width: 600px;
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
