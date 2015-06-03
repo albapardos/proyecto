@@ -24,12 +24,12 @@
         //echo "Mi \"$id\"  \"$n\" \"$p\" \"$acceso\"<br/>";
         
            if($consulta->fetch()){
-                echo("hooooola");
+                //echo("hooooola");
                 
                     //cerramos la consulta anterior
                     $consulta->close();
                     $conexion->close();
-                    echo '<br/>cierro conexion';
+                    //echo '<br/>cierro conexion';
                     
 //actualizamos la columna acceso (lo podremos a 1 para saber que no es la primera vez que se ha metido el usuario)
                     $conexion2=  conectar();
@@ -39,7 +39,7 @@
                     $acceso=true;
                     $consulta_update-> bind_param("ss",$nombre1,$nombre);
                     $consulta_update->execute();
-                    echo "update realizado";
+                    //echo "update realizado";
                     //cerramos la consulta
                     $consulta_update->close();
                     //cerramos la conexión con la base de datos
@@ -53,7 +53,7 @@
         else {//Caso de que este usuario o pass son incorrectos
              $conexion->close();
              $consulta->close();
-             echo "<h2>No existe el usuario $nombre en la base de datos o password incorrecta";    
+             //echo "<h2>No existe el usuario $nombre en la base de datos o password incorrecta";    
              header ("Content-type: text/html; charset=utf-8");
              header ("refresh:5; Location:http://www.albapardos.infenlaces.com/proyecto/cambiaUser.html");
              exit();

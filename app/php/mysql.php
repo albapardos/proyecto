@@ -20,7 +20,7 @@ function conectar(){
        $conexion = new mysqli($host,$usuarioBD,$pass,$bd);
        //Hacemos una consulta a ver si el usuario existe
        if ($conexion->connect_errno){
-           echo ("Se ha producido un error conectado a la base de datos ".$conexion->connect_error);
+           //echo ("Se ha producido un error conectado a la base de datos ".$conexion->connect_error);
            return null;
        }
        return $conexion;

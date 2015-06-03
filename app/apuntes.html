@@ -34,9 +34,10 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="personaje.html">Ficha de personaje<span class="sr-only">(current)</span></a></li>
-        <li class="active"><a href="apuntes.html">Apuntes</a></li>
+        <li class="active"><a href="apuntes.html">Fuente del conocimiento</a></li>
         <li><a href="test.html">Test</a></li>
         <li><a href="tienda.html">Tienda</a></li>
+        <li><a href="reto.html">Preguntas Reto</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mazmorras<span class="caret"></span></a>
           <ul class="dropdown-menu verdecito" role="menu">
@@ -53,6 +54,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Opciones<span class="caret"></span></a>
           <ul class="dropdown-menu verdecito" role="menu">
+            <li><a href="estadisticas.html">Ver estadísticas</a></li>
             <li><a href="cambiaUser.html">Cambiar nombre usuario</a></li>
             <li><a href="cambiaPassword.html">Cambiar password</a></li>
             <li><a href="php/logout.php">Guardar y salir</a></li>
@@ -67,20 +69,95 @@
 <!-- INICIO AVISOS NOVEDADES -->
 <div id="derecha">
     <ul class="list-group">
-      <li class="list-group-item">
+      <li class="list-group-item" id="apuntes-aviso">
         <span class="badge">1</span>
-        <a href="#">Nuevos Apuntes</a>
+        <a href="apuntes.html">Nuevos Apuntes</a>
       </li>
-      <li class="list-group-item">
+      <li class="list-group-item" id="test-aviso">
         <span class="badge">2</span>
-        <a href="#">Nuevos Test</a>
+        <a href="test.html">Nuevos Test</a>
+      </li>
+      <li class="list-group-item" id="reto-aviso">
+        <span class="badge">3</span>
+        <a href="test.html">Nuevos Retos</a>
       </li>
     </ul>
  </div>
  <!-- FIN AVISOS NOVEDADES -->
   
   <!-- INICIO IMAGEN LINKS APUNTES -->
-    
+  <div class="well-apuntes">
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#a1" data-toggle="tab" aria-expanded="false">Asignatura 1</a></li>
+  <li class=""><a href="#a2" data-toggle="tab" aria-expanded="false">Asignatura 2</a></li>
+  <li class=""><a href="#a3" data-toggle="tab" aria-expanded="false">Asignatura 3</a></li>
+  <li class=""><a href="#a4" data-toggle="tab" aria-expanded="false">Asignatura 4</a></li>
+  <li class=""><a href="#a5" data-toggle="tab" aria-expanded="false">Asignatura 5</a></li>
+  <li class=""><a href="#a6" data-toggle="tab" aria-expanded="false">Asignatura 6</a></li>
+</ul>
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade active in" id="a1">
+  <br/>
+    <div class="flotante-apuntes">
+      <a href="http://isa.umh.es/asignaturas/sii/Tema1%20SII%20Java.pdf" target="_blank">Tema 1</a> -> En este tema estudiaremos 1
+    </div>
+    <div class="flotante-apuntes">
+      <a href="http://isa.umh.es/asignaturas/sii/Tema1%20SII%20Java.pdf" target="_blank">Tema 2</a> -> En este tema estudiaremos 2
+    </div>
+    <br/>
+    <div class="flotante-apuntes">
+      <a href="http://isa.umh.es/asignaturas/sii/Tema1%20SII%20Java.pdf" target="_blank">Tema 3</a> -> En este tema estudiaremos 2
+    </div>
+    <div class="flotante-apuntes">
+      <a href="http://isa.umh.es/asignaturas/sii/Tema1%20SII%20Java.pdf" target="_blank">Tema 4</a> -> En este tema estudiaremos 2
+    </div>
+    <br/>
+    <div class="flotante-apuntes">
+      <a href="http://isa.umh.es/asignaturas/sii/Tema1%20SII%20Java.pdf" target="_blank">Tema 5</a> -> En este tema estudiaremos 2
+    </div>
+    <div class="flotante-apuntes">
+      <a href="http://isa.umh.es/asignaturas/sii/Tema1%20SII%20Java.pdf" target="_blank">Tema 6</a> -> En este tema estudiaremos 2
+    </div>
+    <br/>
+    <div class="flotante-apuntes">
+      <a href="http://isa.umh.es/asignaturas/sii/Tema1%20SII%20Java.pdf" target="_blank">Tema 7</a> -> En este tema estudiaremos 2
+    </div>
+    <div class="flotante-apuntes">
+      <a href="http://isa.umh.es/asignaturas/sii/Tema1%20SII%20Java.pdf" target="_blank">Tema 8</a> -> En este tema estudiaremos 2
+    </div> 
+    <br/>
+    <div class="flotante-apuntes">
+      <a href="http://isa.umh.es/asignaturas/sii/Tema1%20SII%20Java.pdf" target="_blank">Tema 9</a> -> En este tema estudiaremos 2
+    </div>
+    <div class="flotante-apuntes">
+      <a href="http://isa.umh.es/asignaturas/sii/Tema1%20SII%20Java.pdf" target="_blank">Tema 10</a> -> En este tema estudiaremos 2
+    </div>
+  <br/>
+  </div>
+  
+  <div class="tab-pane fade" id="a2">
+  <br/>
+    <p>A espera de nuevos apuntes (asignatura 2).</p>
+  </div>
+  <div class="tab-pane fade" id="a3">
+  <br/>
+    <p>A espera de nuevos apuntes (asignatura 3).</p>
+  </div>
+  <div class="tab-pane fade" id="a4">
+  <br/>
+    <p>A espera de nuevos apuntes (asignatura 4).</p>
+  </div>
+  <div class="tab-pane fade" id="a5">
+  <br/>
+    <p>A espera de nuevos apuntes (asignatura 5).</p>
+  </div>
+  <div class="tab-pane fade" id="a6">
+  <br/>
+    <p>A espera de nuevos apuntes (asignatura 6).</p>
+  </div>
+ 
+</div>
+</div>
   <!-- FIN IMAGEN LINKS APUNTES -->
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->

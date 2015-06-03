@@ -23,7 +23,7 @@
         //echo "Mi \"$id\"  \"$n\" \"$p\" \"$acceso\"<br/>";
         
            if($consulta->fetch()){
-                echo("hooooola");
+                //echo("hooooola");
                 //Si es la primera vez que accedo
                 if ($acceso==false){
                     echo '<br/>primera vez';
@@ -54,16 +54,16 @@
                     $consulta->close();
                     $conexion->close();
                     header("Content-type: text/html; charset=utf-8") ;
-                    header("http://www.albapardos.infenlaces.com/proyecto/personaje.html");
+                    header("Location:http://www.albapardos.infenlaces.com/proyecto/personaje.html");
                 }
            
         }//End executa consulta fetch
         else {//Caso de que este usuario o pass son incorrectos
              $conexion->close();
              $consulta->close();
-             echo "<h2>No existe el usuario $nombre en la base de datos o password incorrecta";    
+             //echo "<h2>No existe el usuario $nombre en la base de datos o password incorrecta";    
              header ("Content-type: text/html; charset=utf-8");
-             header ("refresh:5;http://www.albapardos.infenlaces.com/proyecto/index.html");
+             header ("refresh:5;Location:http://www.albapardos.infenlaces.com/proyecto/index.html");
              exit();
         }
     ?>

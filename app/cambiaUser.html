@@ -33,10 +33,11 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="personaje.html">Ficha de personaje<span class="sr-only">(current)</span></a></li>
-        <li><a href="apuntes.html">Apuntes</a></li>
+        <li><a href="personaje.html">Ficha de personaje<span class="sr-only">(current)</span></a></li>
+        <li><a href="apuntes.html">Fuente del conocimiento</a></li>
         <li><a href="test.html">Test</a></li>
         <li><a href="tienda.html">Tienda</a></li>
+        <li><a href="reto.html">Preguntas Reto</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mazmorras<span class="caret"></span></a>
           <ul class="dropdown-menu verdecito" role="menu">
@@ -53,6 +54,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Opciones<span class="caret"></span></a>
           <ul class="dropdown-menu verdecito" role="menu">
+            <li><a href="estadisticas.html">Ver estadísticas</a></li>
             <li><a href="cambiaUser.html">Cambiar nombre usuario</a></li>
             <li><a href="cambiaPassword.html">Cambiar password</a></li>
             <li><a href="php/logout.php">Guardar y salir</a></li>
@@ -67,37 +69,43 @@
 <!-- INICIO AVISOS NOVEDADES -->
 <div id="derecha">
     <ul class="list-group">
-      <li class="list-group-item">
+      <li class="list-group-item" id="apuntes-aviso">
         <span class="badge">1</span>
-        <a href="#">Nuevos Apuntes</a>
+        <a href="apuntes.html">Nuevos Apuntes</a>
       </li>
-      <li class="list-group-item">
+      <li class="list-group-item" id="test-aviso">
         <span class="badge">2</span>
-        <a href="#">Nuevos Test</a>
+        <a href="test.html">Nuevos Test</a>
+      </li>
+      <li class="list-group-item" id="reto-aviso">
+        <span class="badge">3</span>
+        <a href="test.html">Nuevos Retos</a>
       </li>
     </ul>
  </div>
  <!-- FIN AVISOS NOVEDADES -->
+
+ <!-- INICIO FORMULARIO CAMBIAR NOMBRE DE USUARIO -->
   <div class="well">
-<form class="form-horizontal" action="php/cambiaPass.php" method="post">
+<form class="form-horizontal" action="php/cambiaUser.php" method="post">
   <fieldset>
     <legend>Cambia tu nombre de Usuario</legend>
     <div class="form-group">
       <label for="usuario" class="col-lg-2 control-label">Usuario</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="usuario" placeholder="Escribe tu nombre de usuario">
+        <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Escribe tu nombre de usuario">
       </div>
     </div>
     <div class="form-group">
       <label for="pass" class="col-lg-2 control-label">Password</label>
       <div class="col-lg-10">
-        <input type="password" class="form-control" id="passNueva" placeholder="Nueva Password">
+        <input type="password" class="form-control" id="pass" name="pass" placeholder="Nueva Password">
       </div>
     </div>
     <div class="form-group">
       <label for="nuevoNombre" class="col-lg-2 control-label">Usuario*</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="nuevoNombre" placeholder="Escribe tu nuevo nombre de Usuario">
+        <input type="text" class="form-control" id="nuevoNombre" name="nuevoNombre" placeholder="Escribe tu nuevo nombre de Usuario">
       </div>
     </div>
     <div align="center">
@@ -106,9 +114,9 @@
   </fieldset>
 </form>
 </div>
-
+  
+  <!-- FIN FORMULARIO CAMBIAR NOMBRE DE USUARIO -->
     
-  <!-- FIN IMAGEN PERSONAJE -->
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>

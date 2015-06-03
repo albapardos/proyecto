@@ -25,12 +25,12 @@
         //echo "Mi \"$id\"  \"$n\" \"$p\" \"$acceso\"<br/>";
         
            if($consulta->fetch()){
-                echo("hooooola");
+                //echo("hooooola");
                 if($pass1==$pass2){
                     //cerramos la consulta anterior
                     $consulta->close();
                     $conexion->close();
-                    echo '<br/>cierro conexion';
+                    //echo '<br/>cierro conexion';
                     
 //actualizamos la columna acceso (lo podremos a 1 para saber que no es la primera vez que se ha metido el usuario)
                     $conexion2=  conectar();
@@ -61,7 +61,7 @@
         else {//Caso de que este usuario o pass son incorrectos
              $conexion->close();
              $consulta->close();
-             echo "<h2>No existe el usuario $nombre en la base de datos o password incorrecta";    
+             //echo "<h2>No existe el usuario $nombre en la base de datos o password incorrecta";    
              header ("Content-type: text/html; charset=utf-8");
              header ("refresh:5; Location:Location:http://www.albapardos.infenlaces.com/proyecto/index.html");
              exit();
