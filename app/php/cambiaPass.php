@@ -1,9 +1,10 @@
   <?php 
         include_once"mysql.php";
-                //Tengo que mirar la base de datos
-        $conexion=  conectar();
-                //Miramos a ver si no existe
-        $nombre=$_POST['usuario'];
+        
+    session_start();
+if(isset ($_POST['passActual'])!="" && ($_POST['passNueva'])!="" && ($_POST['passNuevaConfirmacion'])!=""){
+        $conexion=conectar();
+        $nombre=$_SESSION['usuario'];
         $pass=$_POST['passActual'];
         $pass1=$_POST['passNueva'];
         $pass2=$_POST['passNuevaConfirmacion'];
@@ -49,12 +50,10 @@
                     header("Content-type=text/html;  charset=utf-8");
                     header("Location:http://www.albapardos.infenlaces.com/proyecto/creaPersonaje.html");
                 }else{
-                    //Si no es la primera vez accedo al porta
-                   // echo 'no es la primera vez';
+                    //Si las pass no coinciden
+                    $passNoCoinciden= 'Las password no coinciden';
                     $consulta->close();
                     $conexion->close();
-                    header("Content-type: text/html; charset=utf-8") ;
-                    header("Location:http://www.albapardos.infenlaces.com/proyecto/personaje.html");
                 }
            
         }//End executa consulta fetch
@@ -66,5 +65,6 @@
              header ("refresh:5; Location:Location:http://www.albapardos.infenlaces.com/proyecto/index.html");
              exit();
         }
+    }
     ?>
       
