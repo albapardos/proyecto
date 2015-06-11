@@ -1,6 +1,7 @@
 <!doctype html>
 <html class="no-js">
   <head>
+
     <meta charset="utf-8">
     <title>proyecto</title>
     <meta name="description" content="">
@@ -19,7 +20,7 @@
     <!-- endbuild -->
 
   </head>
-  <body class="test">
+  <body class="reto">
   <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -71,7 +72,24 @@
 </nav>
 <!-- FIN DE MENÚ -->
 
-<!-- INICIO AVISOS NOVEDADES -->
+
+  
+  <!-- INICIO IMAGEN PERSONAJE -->
+    <div class="personaje">
+      <img src="images/personaje/personaje_B.png">
+    </div>
+  <!-- FIN IMAGEN PERSONAJE -->
+
+  <!-- INICIO PUNTOS -->
+    <div class="panel panel-puntos">
+      <div class="panel-body">
+      500 puntos
+      </div>
+    </div>
+ 
+  <!-- FIN PUNTOS -->
+
+<!-- INICIO AVISOS NOVEDADES
 <div id="derecha">
     <ul class="list-group">
       <li class="list-group-item" id="apuntes-aviso">
@@ -88,63 +106,56 @@
       </li>
     </ul>
  </div>
- <!-- FIN AVISOS NOVEDADES -->
-  
-  <!-- INICIO IMAGEN PERSONAJE -->
-    <div class="personaje">
-      <img src="images/personaje/personaje_B.png">
+  FIN AVISOS NOVEDADES -->
+ <!-- INICIO COMPAÑEROS A RETAR --> 
+  <div class="well-classMates">
+    <div id="classMates">
+      <form name="consultaClassMates" action="" onsubmit="MostrarClassMates('php/alumnos.php'); return false">
+        <label>
+          <input type="submit" value="Consultar compañeros disponibles">
+        </label>
+      </form>
     </div>
-  <!-- FIN IMAGEN PERSONAJE -->
-
-  <!-- INICIO PUNTOS -->
-    <div class="panel panel-puntos">
-      <div class="panel-body">
-      500 puntos
-      </div>
-    </div>
-  <!-- FIN PUNTOS -->
-
-  <!-- INICIO ICONOS -->
-  <div class="panel panel-default">
-      <div class="flotante-inicio-i">
-        <a href="mazmorra_1.html">
-          <img src="images/inicio/icono-dungeon.png" alt="Ficha de personaje" class="icono">
-          Asignatura 1
-        </a>
-      </div>
-      <div class="flotante-inicio">
-        <a href="mazmorra_2.html">
-          <img src="images/inicio/icono-dungeon.png" alt="Apuntes" class="icono">
-          Asignatura 2
-        </a>
-      </div>
-      <div class="flotante-inicio-i">
-        <a href="mazmorra_3.html">
-          <img src="images/inicio/icono-dungeon.png" alt="Tienda" class="icono">
-          Asignatura 3
-        </a>
-      </div>
-      <div class="flotante-inicio">
-        <a href="mazmorra_4.html">
-          <img src="images/inicio/icono-dungeon.png" alt="Test" class="icono">
-          Asignatura 4
-        </a>
-      </div>
-      <div class="flotante-inicio-i">
-        <a href="mazmorra_5.html">
-          <img src="images/inicio/icono-dungeon.png" alt="Reto" class="icono">
-          Asignatura 5
-        </a>
-      </div>
-      <div class="flotante-inicio">
-        <a href="mazmorra_6.html">
-          <img src="images/inicio/icono-dungeon.png" alt="Reto" class="icono">
-          Asignatura 6
-        </a>
-      </div>
-      <br/><br/>
+    <div id="resultadoClassMates"></div>
   </div>
-  <!-- FIN ICONOS -->
+ <!-- FIN COMPAÑEROS A RETAR -->
+ <!-- INICIO PREGUNTAS DISPONIBLES -->
+  <div class="well-preguntas">
+    <div id="preguntas">
+      <form name="consultaPreguntas" action="" onsubmit="MostrarPreguntas('php/preguntas.php'); return false">
+       <label>
+          <input type="submit" value="Consultar preguntas disponibles">
+        </label> 
+      </form>
+    </div>
+    <div id="resultadoPreguntas"></div>
+  </div>
+  <!-- FIN PREGUNTAS DISPONIBLES -->
+  <!-- INICIO FORMULARIO -->
+  <div class="well-enviaReto">
+  <form class="form-horizontal" action="php/enviaReto.php" method="post">
+    <fieldset>
+      <div class="col-lg-6">
+        <label for="aUser" class="col-lg-6 control-label">Retar a</label>
+          <input type="text" class="form-control" id="aUser" name="aUser" placeholder="Escribe el nombre del compañero al que quieres retar">  
+      </div>
+      <div class="col-lg-6">
+
+        <label for="pregunta" class="col-lg-8 control-label">ID de la pregunta</label>
+        <input type="text" class="form-control" id="pregunta" name="pregunta" placeholder="Escribe el id de la pregunta que deseas enviar">
+      </div>
+
+      <div class="col-lg-6">
+        <label for="puntosApostados" class="col-lg-6 control-label">Puntos</label>
+        <input type="text" class="form-control" id="puntosApostados" name="puntosApostados" placeholder="Puntos que te juegas">
+      </div>   
+    </fieldset>
+    <div class="botonReto">
+      <button type="submit" class="btn btn-primary">Enviar Reto</button> 
+    </div>
+    </form>
+  </div>
+ <!-- FIN FORMULARIO -->
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>

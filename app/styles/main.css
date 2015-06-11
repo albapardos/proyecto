@@ -45,7 +45,14 @@
   position:absolute;
   max-width: 300px;
 }
-
+#respuestaOK{
+  margin-top: 30%;
+  margin-left:30%;
+}
+#respuestaFail{
+  margin-top: 30%;
+  margin-left:30%;
+}
 .flotante-apuntes{
   float: left;
   width: 50%;
@@ -5838,6 +5845,20 @@ a.list-group-item-danger.active:focus {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
+.well-crea {
+  position: absolute;
+  margin-top: 18%;
+  margin-left: 22%;
+  width: 50%;
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #f8f5f0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
 .well-apuntes {
   position:absolute;
   margin-top: 20%;
@@ -5885,6 +5906,92 @@ a.list-group-item-danger.active:focus {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   overflow: scroll;
+}
+.well-classMates {
+  position: absolute;
+  margin-top: 10%;
+  margin-left: 37%;
+  width: 28%;
+  min-height: 20px;
+  max-height: 35%;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #f8f5f0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.well-preguntas {
+  position: absolute;
+  margin-top: 10%;
+  margin-left: 68%;
+  width: 28%;
+  min-height: 20px;
+  max-height: 35%;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #f8f5f0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.well-enviaReto {
+  position: absolute;
+  margin-top: 38%;
+  margin-left: 37%;
+  width: 59%;
+  min-height: 20px;
+  max-height: 21%;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #f8f5f0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.well-recibeRetoPregunta {
+  position: absolute;
+  margin-top: 10%;
+  margin-left: 35%;
+  width: 29%;
+  min-height: 20px;
+  max-height: 35%;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #f8f5f0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.well-recibeReto {
+  position: absolute;
+  margin-top: 45%;
+  margin-left: 35%;
+  width: 29%;
+  min-height: 20px;
+  max-height: 21%;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #f8f5f0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.botonReto{
+  position:absolute;
+  margin-top:-6%;
+  margin-left: 62%;
+}
+.botonContestaReto{
+  position:absolute;
+  margin-top: 7%;
+  margin-left: 50%;
 }
 .well blockquote {
   border-color: #ddd;

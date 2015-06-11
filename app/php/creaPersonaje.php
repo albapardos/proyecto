@@ -58,8 +58,8 @@ if(isset ($_POST['passActual'])!="" && ($_POST['passNueva'])!="" && ($_POST['pas
            
         }//End executa consulta fetch
         else {//Caso de que este usuario o pass son incorrectos
+             $conexion->close();
              $consulta->close();
-            $conexion->close();
              //echo "<h2>No existe el usuario $nombre en la base de datos o password incorrecta";    
              header ("Content-type: text/html; charset=utf-8");
              header ("refresh:5; Location:Location:http://www.albapardos.infenlaces.com/proyecto/index.html");

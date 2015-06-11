@@ -21,8 +21,7 @@
         //Ejecutamos la sentencia
         $consulta->execute();
             //Extraemos los valores
-        $consulta->bind_result($id,$n,$p,$acceso);
-        //echo "Mi \"$id\"  \"$n\" \"$p\" \"$acceso\"<br/>";
+
         
            if($consulta->fetch()){
                 //guardamos como variables de sesión el usuario y el password que nos podrán servir más adelante
@@ -49,14 +48,31 @@
                     //cerramos la consulta
                     $consulta_update->close();
                     //cerramos la conexión con la base de datos
+                    $consulta_update->close();
                     $conexion2->close();
-
-                    echo "Bienvenido $_SESSION['usuario']";
+//guardamos como variable de sesión el curso del usuario
+                    
+                    $conexion3= conectar();
+                    $consulta_curso = $conexion3->stmt_init();
+                    $select= "SELECT curso FROM usuario WHERE nick= ?";
+                    $consulta_curso->prepare($select);                  
+                    $consulta_curso-> bind_param("s",$nombre);
+                    $consulta_curso->execute();
+                    //guardamos el resultado en una variable de sesion
+                    $consulta_curso->bind_result($curso);
+                    while ($consulta_curso->fetch()){
+                        $_SESSION['curso']=$curso;
+                    }
+                    //cerramos la consulta
+                    $consulta_curso->close();
+                    //cerramos la conexión con la base de datos
+                    $conexion3->close();
+                    //echo "Bienvenido $_SESSION['usuario']";
                     header("Content-type=text/html;  charset=utf-8");
                     header("Location:http://www.albapardos.infenlaces.com/proyecto/creaPersonaje.html");
                 }else{
                    // echo 'no es la primera vez';
-                    echo "Bienvenido $_SESSION['usuario']";
+                   // echo "Bienvenido $_SESSION['usuario']";
                     $consulta->close();
                     $conexion->close();
                     header("Content-type: text/html; charset=utf-8") ;
@@ -70,7 +86,7 @@
              $consulta->close();
              //echo "<h2>No existe el usuario $nombre en la base de datos o password incorrecta";    
              header ("Content-type: text/html; charset=utf-8");
-             header ("refresh:5;Location:http://www.albapardos.infenlaces.com/proyecto/index.html");
+             header ("Location:http://www.albapardos.infenlaces.com/proyecto/index.html");
              exit();
         }
     ?>
